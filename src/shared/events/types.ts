@@ -7,6 +7,12 @@ type AType<B extends string> = {
 };
 
 export interface EventType<A extends AType<B>, B extends string, C extends AType<D>, D extends string> {
-	a: keyof A;
-	c: keyof C;
+	a: A;
+	c: C;
+}
+
+type AMapType<A extends AType<B>, B extends string> = Map<keyof A, number>;
+
+export interface EventType2<A extends AType<B>, B extends string> {
+	map: AMapType<A, B>;
 }
